@@ -1,0 +1,49 @@
+{
+  "required_api_version": "2",
+  "name": "Wallpaper Changer",
+  "description": "Pick a wallpaper from a random list",
+  "developer_name": "teofiloxyz",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.05
+  },
+  "preferences": [
+    {
+        "id": "pick_wallpaper",
+        "type": "keyword",
+        "name": "Pick a wallpaper",
+        "description": "Pick a wallpaper from a random list",
+        "default_value": "wp"
+	}, {
+		"id": "enter_action",
+		"type": "text",
+		"name": "Bash command on Enter action",
+		"description": "Execute bash cmd to change the wallpaper to the selected %wallpaper_path%",
+		"default_value": "gsettings set \"org.gnome.desktop.background\" \"picture-uri\" \"file:///%wallpaper_path%\""
+	}, {
+        "id": "trash_current_wallpaper",
+        "type": "keyword",
+        "name": "Move your current displayed wallpaper to trash",
+        "description": "This will also change it to another random wallpaper",
+        "default_value": "wpr"
+	}, {
+		"id": "get_current_wallpaper",
+		"type": "text",
+		"name": "Bash command to get the path of current displayed wallpaper",
+		"description": "The output of the command must be a valid path",
+		"default_value": "gsettings get org.gnome.desktop.background picture-uri | sed \"s#file:///##\" | tr -d \"'\""
+	}, {
+		"id": "wallpapers_folder_path",
+		"type": "text",
+		"name": "Wallpapers folder path",
+		"description": "Path of the folder that contains the wallpapers",
+		"default_value": "put folder path here"
+	}, {
+        "id": "max_wallpaper_items",
+        "type": "text",
+        "name": "Maximum wallpaper items",
+        "description": "Maximum amount of random wallpapers to pick from",
+        "default_value": 10
+    }
+  ]
+}
